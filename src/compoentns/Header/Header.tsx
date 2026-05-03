@@ -1,5 +1,6 @@
 import styles from './Header.module.css';
 import MenuActivateButton from "../buttons/MenuActivateButton/MenuActivateButton.tsx";
+import ButtonsContainer from "./ButtonsContainer/ButtonsContainer.tsx";
 
 type Props = {
   className?: string
@@ -7,8 +8,9 @@ type Props = {
 
 export const Header = (props: Props) => {
   return (
-    <div className={`${styles.header} ${props.className || ''}`}>
+    <header className={`${styles.header} ${props.className || ''}`}>
       <MenuActivateButton />
-    </div>
+      <ButtonsContainer isExpanded={true} />
+    </header>
   );
 };
