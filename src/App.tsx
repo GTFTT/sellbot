@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+import styles from './App.module.css'
+import {Header} from "./compoentns/Header/Header.tsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      {count}
-      <button onClick={() => setCount(count + 1)}>+</button>
-    </>
+    <div className={styles.app}>
+      <Header />
+
+    </div>
   )
 }
 
