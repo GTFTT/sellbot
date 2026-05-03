@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.6rem;
+  padding: 2rem;
+  height: stretch;
+  background: rgb(0 0 0 / 0.5);
+  cursor: pointer;
+}
+
+.highlightedText {
+  height: fit-content;
+  padding: 1rem;
+  background: rgb(0 0 0 / 0.6);
+  border-radius: 100%;
+  color: dimgray;
+  box-shadow: 0 0 1rem #000000;
+}

@@ -3,6 +3,7 @@ import MenuActivateButton from "../buttons/MenuActivateButton/MenuActivateButton
 import ButtonsContainer from "./ButtonsContainer/ButtonsContainer.tsx";
 import {animate, createScope, Scope} from 'animejs'
 import {useEffect, useRef, useState} from "react";
+import RemainingSpaceContainer from "./RemainingSpaceContainer/RemainingSpaceContainer.tsx";
 
 type Props = {
   className?: string
@@ -72,14 +73,15 @@ export const Header = (props: Props) => {
       </div>
       <div className={styles.contentContainer}>
         <ButtonsContainer isExpanded={headerActivated} />
-        <div
-          className={`${styles.spaceContainer} ${headerActivated? styles.remainingSpaceContainer: styles.zeroSpaceContainer}`}
-          onClick={() => {
-            deactivateMenuClicked()
-          }}
-        >
-          <span className={styles.highlightedText}>Click anywhere to exit menu</span>
-        </div>
+        <RemainingSpaceContainer onClick={deactivateMenuClicked} isExpanded={headerActivated}/>
+        {/*<div*/}
+        {/*  className={`${styles.spaceContainer} ${headerActivated? styles.remainingSpaceContainer: styles.zeroSpaceContainer}`}*/}
+        {/*  onClick={() => {*/}
+        {/*    deactivateMenuClicked()*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  <span className={styles.highlightedText}>Click anywhere to exit menu</span>*/}
+        {/*</div>*/}
       </div>
     </header>
   );

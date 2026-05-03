@@ -1,5 +1,5 @@
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -14,31 +14,4 @@
 .contentContainer {
   width: 100%;
   height: stretch;
-}
-
-.spaceContainer {
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 0.6rem;
-  padding: 2rem;
-}
-
-.zeroSpaceContainer {
-  display: none;
-}
-
-.remainingSpaceContainer {
-  height: stretch;
-  background: rgb(0 0 0 / 0.5);
-  cursor: pointer;
-}
-
-.highlightedText {
-  height: fit-content;
-  padding: 1rem;
-  background: rgb(0 0 0 / 0.6);
-  border-radius: 100%;
-  color: dimgray;
-  box-shadow: 0 0 1rem #000000;
 }
