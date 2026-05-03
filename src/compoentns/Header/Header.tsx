@@ -78,7 +78,7 @@ export const Header = (props: Props) => {
             deactivateMenuClicked()
           }}
         >
-          <span>Click anywhere to exit menu</span>
+          <span className={styles.highlightedText}>Click anywhere to exit menu</span>
         </div>
       </div>
     </header>
