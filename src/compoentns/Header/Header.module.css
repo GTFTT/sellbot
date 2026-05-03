@@ -3,5 +3,33 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: black;
+  height: 100%;
+  user-select: none;
+}
+
+.activateButtonContainer {
+  width: 100%;
+}
+
+.contentContainer {
+  width: 100%;
+  height: stretch;
+}
+
+.spaceContainer {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.4rem;
+  padding: 2rem;
+}
+
+.zeroSpaceContainer {
+  display: none;
+}
+
+.remainingSpaceContainer {
+  height: stretch;
+  background: rgb(0 0 0 / 0.2);
+  cursor: pointer;
 }
