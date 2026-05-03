@@ -1,0 +1,32 @@
+.menuActivateButton {
+  background: #1D232D;
+  border: none;
+  min-height: 2rem;
+  color: white;
+  font-weight: bold;
+  border-bottom-right-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo {
+      width: 16px;
+      height: 16px;
+    }
+
+  }
+}
+
+.menuActivateButton:hover {
+  background: #1D232D;
+  cursor: pointer;
+}
+
+
