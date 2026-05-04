@@ -1,6 +1,8 @@
 import styles from "./ButtonsContainer.module.css";
 import {useEffect, useRef} from "react";
 import {animate, createScope, createTimeline, type Scope} from "animejs";
+import {mainMenuItems} from "../../../config/menuItems.ts";
+import ButtonsBlock from "./ButtonsBlock/ButtonsBlock.tsx";
 
 export interface ButtonsContainerProps {
   className?: string;
@@ -50,7 +52,13 @@ function ButtonsContainer(props: ButtonsContainerProps) {
 
   return (
     <div ref={rootRef} className={`${styles.buttonsContainer} ${props.className || ''}`}>
-      CONTENT
+      {
+        mainMenuItems.map(item => {
+          return (
+            <ButtonsBlock items={item.items} />
+          )
+        })
+      }
     </div>
   );
 }
