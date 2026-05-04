@@ -13,7 +13,7 @@ function ButtonsBlock(props: ButtonsBlockProps) {
       {
         props.items.map(item => {
           return (
-            <MenuButton >{item.label}</MenuButton>
+            <MenuButton key={item.id} >{item.label}</MenuButton>
           )
         })
       }

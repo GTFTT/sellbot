@@ -55,7 +55,7 @@ function ButtonsContainer(props: ButtonsContainerProps) {
       {
         mainMenuItems.map(item => {
           return (
-            <ButtonsBlock items={item.items} />
+            <ButtonsBlock key={item.id} items={item.items} />
           )
         })
       }
