@@ -26,7 +26,7 @@ export const Header = (props: Props) => {
           height: '0rem',
           ease: 'out(1)',
           duration: 350,
-          delay: 500,
+          delay: 0,
         });
       });
       self.add('deactivateMenu', () => {
