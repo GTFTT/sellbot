@@ -1,5 +1,6 @@
 .app {
-  background: black;
+  background: #000000;
+  color: white;
   min-height: 100vh;
   padding: 0;
   margin: 0;
