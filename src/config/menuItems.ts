@@ -43,6 +43,10 @@ export const mainMenuItems: MainMenuItemBlock[] = [
     items: [
       {
         id: v4(),
+        label: 'Home screen',
+      },
+      {
+        id: v4(),
         label: 'Constructor',
       },
       {
