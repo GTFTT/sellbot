@@ -1,8 +1,10 @@
 import { v4 } from "uuid";
+import {routes} from "./routes.ts";
 
 export interface MainMenuItemBlockItem {
   id: string;
   label: string;
+  route?: string;
 }
 export interface MainMenuItemBlock {
   id: string;
@@ -17,23 +19,28 @@ export const mainMenuItems: MainMenuItemBlock[] = [
     items: [
       {
         id: v4(),
-        label: 'Buy for home'
+        label: 'Buy for home',
+        route: routes.inProgress,
       },
       {
         id: v4(),
-        label: 'Buy for factory'
+        label: 'Buy for factory',
+        route: routes.inProgress,
       },
       {
         id: v4(),
-        label: 'Buy for store'
+        label: 'Buy for store',
+        route: routes.inProgress,
       },
       {
         id: v4(),
-        label: 'Buy for security'
+        label: 'Buy for security',
+        route: routes.inProgress,
       },
       {
         id: v4(),
-        label: 'Buy for healthcare'
+        label: 'Buy for healthcare',
+        route: routes.inProgress,
       },
     ]
   },
@@ -44,6 +51,7 @@ export const mainMenuItems: MainMenuItemBlock[] = [
       {
         id: v4(),
         label: 'Home screen',
+        route: routes.home,
       },
       {
         id: v4(),
