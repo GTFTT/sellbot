@@ -19,10 +19,10 @@ function LoginPage() {
     <div className={styles.container}>
       <h3>Login</h3>
       <form className={styles.formContainer}>
-        <label htmlFor="username">Username:</label>
-        <Input value={email} onChange={(e) => setEmail(e.target.value)} type="text" id="username" name="username" required />
+        <label>Email:</label>
+        <Input value={email} onChange={(e) => setEmail(e.target.value)} type="text" id="email" name="email" required />
 
-        <label htmlFor="password">Password:</label>
+        <label>Password:</label>
         <Input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" required />
 
         <div className={styles.buttonContainer}>
