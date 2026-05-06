@@ -70,10 +70,12 @@ export const mainMenuItems: MainMenuItemBlock[] = [
       {
         id: v4(),
         label: 'Login',
+        route: routes.login,
       },
       {
         id: v4(),
         label: 'Register',
+        route: routes.register,
       }
     ]
   },
