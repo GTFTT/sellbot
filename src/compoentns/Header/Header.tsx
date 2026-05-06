@@ -14,6 +14,7 @@ export const Header = (props: Props) => {
   const container = useRef(null);
   const scope = useRef<Scope>(null);
   const menuActivateButtonContainerRef = useRef(null);
+  const [headerMounted, setHeaderMounted] = useState(false);
 
   useEffect(() => {
     scope.current = createScope({ root: container });
@@ -25,8 +26,11 @@ export const Header = (props: Props) => {
           opacity: 0,
           height: '0rem',
           ease: 'out(1)',
-          duration: 350,
+          duration: 1000,
           delay: 0,
+          onBegin: () => {
+            setHeaderMounted(true);
+          }
         });
       });
       self.add('deactivateMenu', () => {
@@ -35,11 +39,15 @@ export const Header = (props: Props) => {
           opacity: 1,
           height: '2rem',
           ease: 'out(1)',
-          duration: 200,
+          duration: 1000,
           delay: 1000,
+          onComplete: () => {
+            setHeaderMounted(false)
+          }
         });
       });
     });
+    // setHeaderMounted(false)
   }, []);
 
   useEffect(() => {
@@ -62,27 +70,21 @@ export const Header = (props: Props) => {
   return (
     <header
       ref={container}
-      className={`${styles.header} ${props.className || ''}`}
+      className={`${headerMounted? styles.header: styles.headerUnmounted } ${props.className || ''}`}
 
     >
       <div
         ref={menuActivateButtonContainerRef}
         className={styles.activateButtonContainer}
       >
-        <MenuActivateButton onClick={activateMenuClicked}/>
+        <MenuActivateButton className={headerMounted? styles.unmountedButton: ' '} onClick={activateMenuClicked}/>
       </div>
-      <div className={styles.contentContainer}>
-        <ButtonsContainer isExpanded={headerActivated} />
-        <RemainingSpaceContainer onClick={deactivateMenuClicked} isExpanded={headerActivated}/>
-        {/*<div*/}
-        {/*  className={`${styles.spaceContainer} ${headerActivated? styles.remainingSpaceContainer: styles.zeroSpaceContainer}`}*/}
-        {/*  onClick={() => {*/}
-        {/*    deactivateMenuClicked()*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  <span className={styles.highlightedText}>Click anywhere to exit menu</span>*/}
-        {/*</div>*/}
-      </div>
+      {headerMounted && (
+        <div className={styles.contentContainer}>
+          <ButtonsContainer isExpanded={headerActivated} />
+          <RemainingSpaceContainer onClick={deactivateMenuClicked} isExpanded={headerActivated}/>
+        </div>
+      )}
     </header>
   );
 };

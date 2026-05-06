@@ -1,10 +1,18 @@
-.header {
+.header, .headerUnmounted {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   user-select: none;
+}
+
+.headerUnmounted {
+  height: auto;
+}
+
+.unmountedButton {
+  display: none !important; /* I set this because it appears that order doesn't matter when using css modules' */
 }
 
 .activateButtonContainer {
