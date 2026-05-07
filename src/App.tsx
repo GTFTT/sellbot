@@ -7,7 +7,9 @@ function App() {
   return (
     <div className={styles.app}>
       <Header />
-      <MainRoutesNode />
+      <div className={styles.pagesContainer}>
+        <MainRoutesNode />
+      </div>
       <Footer />
     </div>
   )

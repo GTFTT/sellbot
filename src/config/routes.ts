@@ -5,4 +5,5 @@ export const routes = {
   inProgress: "/in_progress",
   login: "/login",
   register: "/register",
+  about: "/about",
 }

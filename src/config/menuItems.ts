@@ -85,7 +85,8 @@ export const mainMenuItems: MainMenuItemBlock[] = [
     items: [
       {
         id: v4(),
-        label: 'About us',
+        label: 'About',
+        route: routes.about,
       },
       {
         id: v4(),
