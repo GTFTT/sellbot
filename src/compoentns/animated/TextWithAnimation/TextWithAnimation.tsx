@@ -3,6 +3,7 @@ import { useEffect, useRef} from "react";
 import {createAnimatable} from "animejs";
 
 export interface TextWithAnimationPropsI {
+  className?: string;
   children?: React.ReactNode;
   getParentComponent: () => HTMLElement | null;
 }
@@ -10,7 +11,7 @@ export interface TextWithAnimationPropsI {
 /**
  * This is a simple text component with reusable animation. Animation is moving to the center of the screen and then stopping
  */
-function TextWithAnimation({children, getParentComponent}: TextWithAnimationPropsI) {
+function TextWithAnimation({className, children, getParentComponent}: TextWithAnimationPropsI) {
   const textRef = useRef<HTMLSpanElement>(null);
   useEffect(() => {
     const textEl = textRef.current;
@@ -93,7 +94,7 @@ function TextWithAnimation({children, getParentComponent}: TextWithAnimationProp
   }, [getParentComponent]);
 
   return (
-    <span ref={textRef} className={styles.container}>{children}</span>
+    <span ref={textRef} className={`${styles.container} ${className || " "}`}>{children}</span>
   );
 }
 

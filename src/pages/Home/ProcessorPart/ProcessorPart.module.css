@@ -1,0 +1,14 @@
+.container {
+  padding: 5rem 10rem;
+}
+
+.text {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  color: #8c0000;
+}
