@@ -1,16 +1,9 @@
-import HeavyIndustrialRobot from "../../assets/HeavyIndustrialRobot.png";
+import HeavyIndustrialRobotPart from "./HeavyIndustrialRobotPart/HeavyIndustrialRobotPart.tsx";
 
 function Home() {
   return (
     <div>
-      <img
-        style={{
-          width: '100%',
-          height: 'auto',
-        }}
-        src={HeavyIndustrialRobot}
-        alt="HeavyIndustrialRobot"
-      />
+      <HeavyIndustrialRobotPart />
     </div>
   );
 }
