@@ -12,7 +12,7 @@ function RegisterPage() {
   const [repeatPassword, setRepeatPassword] = useState("");
   const navigate = useNavigate()
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: any) => {
     e.preventDefault();
     navigate(routes.login)
   }
