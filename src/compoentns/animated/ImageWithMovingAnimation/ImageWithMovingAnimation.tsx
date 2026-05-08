@@ -72,7 +72,7 @@ function ImageWithMovingAnimation({ image }: ImageWithMovingAnimationPropsI) {
 
 
   return (
-    <div ref={boundsRef} className={styles.imageBounds}>
+    <div ref={boundsRef} className={styles.container}>
       <img ref={imageRef} src={image} alt="HeavyIndustrialRobot" />
     </div>
   );
