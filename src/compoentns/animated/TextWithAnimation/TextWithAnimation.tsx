@@ -19,7 +19,7 @@ function TextWithAnimation({children, getParentComponent}: TextWithAnimationProp
     let rafId = 0;
 
     const animatableText = createAnimatable(textEl, {
-      y: 50,
+      y: 200,
       ease: "linear",
     });
 
