@@ -21,8 +21,8 @@ function ImageWithMovingAnimation({ image }: ImageWithMovingAnimationPropsI) {
     };
 
     const animatableImage = createAnimatable(imageEl, {
-      x: 5000,
-      y: 5000,
+      x: 10_000,
+      y: 10_000,
       ease: "out(3)",
     });
 
@@ -36,7 +36,7 @@ function ImageWithMovingAnimation({ image }: ImageWithMovingAnimationPropsI) {
       const dy = e.clientY - top - hh;
 
       // Circular bound radius: 1/10 of half-width
-      const radius = hw / 10;
+      const radius = hw / 8;
 
       // Clamp point to circle
       const distance = Math.hypot(dx, dy);
@@ -49,12 +49,21 @@ function ImageWithMovingAnimation({ image }: ImageWithMovingAnimationPropsI) {
       animatableImage.y(y);
     };
 
+    const resetPosition = () => {
+      animatableImage.x(0);
+      animatableImage.y(0);
+    }
+
     boundsEl.addEventListener("mousemove", onMouseMove);
+    boundsEl.addEventListener("mouseleave", resetPosition);
+    window.addEventListener("blur", resetPosition);
     window.addEventListener("resize", refreshBounds);
     window.addEventListener("scroll", refreshBounds, { passive: true });
 
     return () => {
       boundsEl.removeEventListener("mousemove", onMouseMove);
+      boundsEl.removeEventListener("mouseleave", resetPosition);
+      window.removeEventListener("blur", resetPosition);
       window.removeEventListener("resize", refreshBounds);
       window.removeEventListener("scroll", refreshBounds);
     };

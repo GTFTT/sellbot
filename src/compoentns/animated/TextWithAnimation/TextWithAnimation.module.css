@@ -7,7 +7,7 @@
   font-size: 3rem;
   text-align: center;
   will-change: transform;
-  background-color: rgb(0 0 0 / 0.5);
+  background-color: rgb(0 0 0 / 0.7);
   border-radius: 2rem;
   pointer-events: none;
 }
