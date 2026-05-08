@@ -66,7 +66,7 @@ function HeavyIndustrialRobotPart() {
     let rafId = 0;
 
     const animatableText = createAnimatable(textEl, {
-      y: 0,
+      y: 50,
       ease: "linear",
     });
 
