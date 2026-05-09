@@ -1,15 +1,17 @@
 .menuActivateButton {
-  background: #1D232D;
+  background: #000000;
   border: none;
   min-height: 2rem;
   color: white;
   font-weight: bold;
+  font-size: 1.5rem;
   border-bottom-right-radius: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
   user-select: none;
+  padding: 0.5rem 1rem;
 
   .logoContainer {
     display: flex;
