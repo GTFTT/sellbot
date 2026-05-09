@@ -1,15 +1,16 @@
 import styles from "./ButtonsContainer.module.css";
 import {useEffect, useRef} from "react";
 import {animate, createScope, createTimeline, type Scope} from "animejs";
-import {mainMenuItems} from "../../../config/menuItems.ts";
+import {type MainMenuItemBlockItem, mainMenuItems} from "../../../config/menuItems.ts";
 import ButtonsBlock from "./ButtonsBlock/ButtonsBlock.tsx";
 
 export interface ButtonsContainerProps {
   className?: string;
   isExpanded: boolean;
+  onMenuItemClick?: (item: MainMenuItemBlockItem) => void;
 }
 
-function ButtonsContainer(props: ButtonsContainerProps) {
+function ButtonsContainer({className, isExpanded, onMenuItemClick}: ButtonsContainerProps) {
   const rootRef = useRef<HTMLDivElement | null>(null);
   const scopeRef = useRef<Scope | null>(null);
 
@@ -43,19 +44,19 @@ function ButtonsContainer(props: ButtonsContainerProps) {
   }, []);
 
   useEffect(() => {
-    if (props.isExpanded) {
+    if (isExpanded) {
       scopeRef.current?.methods.appear();
     } else {
       scopeRef.current?.methods.disappear();
     }
-  }, [props.isExpanded]);
+  }, [isExpanded]);
 
   return (
-    <div ref={rootRef} className={`${styles.buttonsContainer} ${props.className || ''}`}>
+    <div ref={rootRef} className={`${styles.buttonsContainer} ${className || ''}`}>
       {
         mainMenuItems.map(item => {
           return (
-            <ButtonsBlock key={item.id} items={item.items} />
+            <ButtonsBlock key={item.id} items={item.items} onButtonClick={onMenuItemClick} />
           )
         })
       }

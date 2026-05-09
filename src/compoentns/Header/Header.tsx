@@ -84,7 +84,7 @@ export const Header = (props: Props) => {
       </div>
       {headerMounted && (
         <div className={styles.contentContainer}>
-          <ButtonsContainer isExpanded={headerActivated} />
+          <ButtonsContainer isExpanded={headerActivated} onMenuItemClick={() => deactivateMenuClicked()} />
           <RemainingSpaceContainer onClick={deactivateMenuClicked} isExpanded={headerActivated}/>
         </div>
       )}

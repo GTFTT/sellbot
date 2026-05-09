@@ -6,14 +6,15 @@ import {useNavigate} from "react-router";
 export interface ButtonsBlockProps {
   className?: string;
   items: MainMenuItemBlockItem[];
+  onButtonClick?: (item: MainMenuItemBlockItem) => void;
 }
 
-function ButtonsBlock(props: ButtonsBlockProps) {
+function ButtonsBlock({className, items, onButtonClick}: ButtonsBlockProps) {
   const navigate = useNavigate();
   return (
-    <div className={`${styles.container} ${props.className || ''}`}>
+    <div className={`${styles.container} ${className || ''}`}>
       {
-        props.items.map(item => {
+        items.map(item => {
           return (
             <MenuButton
               key={item.id}
@@ -23,6 +24,7 @@ function ButtonsBlock(props: ButtonsBlockProps) {
                 } else {
                   navigate(item.route);
                 }
+                onButtonClick?.(item);
               }}
             >
               {item.label}
