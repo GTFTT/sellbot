@@ -13,10 +13,13 @@ import {
 
 export interface ModelViewerPropsI {
   gltfFile: string;
+  /** Tells if the camera will be rotating around the scene. If user clicks somewhere, rotation will stop. */
+  autoRotateEnabled?: boolean;
 }
 
-function ModelViewer({ gltfFile }: ModelViewerPropsI) {
+function ModelViewer({ gltfFile, autoRotateEnabled }: ModelViewerPropsI) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const controlsRef = useRef<OrbitControls>(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -74,6 +77,8 @@ function ModelViewer({ gltfFile }: ModelViewerPropsI) {
     };
     window.addEventListener("resize", onResize);
 
+    controlsRef.current = controls;
+
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", onResize);
@@ -81,6 +86,16 @@ function ModelViewer({ gltfFile }: ModelViewerPropsI) {
       renderer.dispose();
     };
   }, [gltfFile]);
+
+  useEffect(() => {
+    if (!controlsRef.current) return;
+    if(autoRotateEnabled) {
+      controlsRef.current.autoRotate = true
+      controlsRef.current.autoRotateSpeed = -3
+    } else {
+      controlsRef.current.autoRotate = false
+    }
+  }, [autoRotateEnabled]);
 
   return (
     <div className={styles.container}>

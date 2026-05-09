@@ -8,7 +8,7 @@ function ProcessorPart() {
 
   return (
     <div ref={rootRef} className={styles.container}>
-      <ModelViewer gltfFile={PROCESSOR_GLTF_URL} />
+      <ModelViewer gltfFile={PROCESSOR_GLTF_URL} autoRotateEnabled={true}/>
       <span className={styles.text}>
         We run on the most <b>powerful</b> processors out there.
       </span>
