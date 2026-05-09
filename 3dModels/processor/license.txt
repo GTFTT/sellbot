@@ -1,0 +1,11 @@
+Model Information:
+* title:	Processor Intel Core i9
+* source:	https://sketchfab.com/3d-models/processor-intel-core-i9-cdfe2dfc7b884f25964ada8b11dc535b
+* author:	Ivan Vakulko (https://sketchfab.com/milos4)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Processor Intel Core i9" (https://sketchfab.com/3d-models/processor-intel-core-i9-cdfe2dfc7b884f25964ada8b11dc535b) by Ivan Vakulko (https://sketchfab.com/milos4) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
