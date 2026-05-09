@@ -25,7 +25,7 @@ function ButtonsContainer({className, isExpanded, onMenuItemClick}: ButtonsConta
           if(!rootRef.current) throw new Error(`Root reference is not available yet.`);
           const tm = createTimeline()
           tm.add(rootRef.current, {
-            opacity: 1,
+            // opacity: 1,
             minHeight: '50vh',
             duration: 1000,
             ease: 'inQuad',
@@ -34,7 +34,7 @@ function ButtonsContainer({className, isExpanded, onMenuItemClick}: ButtonsConta
         self.add('disappear', () => {
           if(!rootRef.current) throw new Error(`Root reference is not available yet.`);
           animate(rootRef.current, {
-            opacity: 0,
+            // opacity: 0,
             minHeight: '0vh',
             duration: 1000,
             ease: 'inQuad',
@@ -56,7 +56,7 @@ function ButtonsContainer({className, isExpanded, onMenuItemClick}: ButtonsConta
       {
         mainMenuItems.map(item => {
           return (
-            <ButtonsBlock key={item.id} items={item.items} onButtonClick={onMenuItemClick} />
+            <ButtonsBlock key={item.id} items={item.items} onButtonClick={onMenuItemClick} blockVisible={isExpanded} />
           )
         })
       }
