@@ -19,17 +19,17 @@ function TextWithAnimation({className, children, getParentComponent}: TextWithAn
 
     // Keep breakpoint aligned with your CSS media query
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    //
-    // // Disable animation on mobile and ensure default position
-    // if (isMobile) {
-    //   textEl.style.transform = "translateY(0)";
-    //   return;
-    // }
+
+    // Disable animation on mobile and ensure default position
+    if (isMobile) {
+      textEl.style.transform = "translateY(0)";
+      return;
+    }
 
     let rafId = 0;
 
     const animatableText = createAnimatable(textEl, {
-      y: isMobile? 100: 200,
+      y: 200,
       ease: "linear",
     });
 
