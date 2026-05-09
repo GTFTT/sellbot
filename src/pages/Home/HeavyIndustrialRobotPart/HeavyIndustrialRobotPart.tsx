@@ -12,7 +12,7 @@ function HeavyIndustrialRobotPart() {
     <div ref={rootRef} className={styles.container}>
       <ImageWithMovingAnimation image={heavyIndustrialRobotTransparent} />
       <TextWithAnimation getParentComponent={() => rootRef.current}>
-        Our industrial machines are so heavy they can lift a track.
+        Our industrial machines are so heavy they can lift a truck.
       </TextWithAnimation>
     </div>
   );
