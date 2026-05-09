@@ -1,8 +1,16 @@
 .buttonsContainer {
   background: black;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: start;
   padding: 4rem;
   gap: 1rem;
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .buttonsContainer {
+    flex-direction: column;
+  }
 }

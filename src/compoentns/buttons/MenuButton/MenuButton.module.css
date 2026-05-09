@@ -10,3 +10,10 @@
   background: #2e2e2e;
   cursor: pointer;
 }
+
+/* Phones */
+@media (max-width: 480px) {
+  .container {
+    padding: 2rem 1.5rem;
+  }
+}

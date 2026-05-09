@@ -7,3 +7,10 @@
   gap: 0.5rem;
   overflow: hidden;
 }
+
+/* Phones */
+@media (max-width: 480px) {
+  .container {
+    width: stretch;
+  }
+}
