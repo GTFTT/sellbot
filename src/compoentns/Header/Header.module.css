@@ -18,6 +18,7 @@
 
 .activateButtonContainer {
   width: 100%;
+  position: fixed;
 }
 
 .contentContainer {

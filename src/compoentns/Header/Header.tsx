@@ -12,16 +12,16 @@ type Props = {
 };
 
 export const Header = (props: Props) => {
-  const container = useRef(null);
-  const scope = useRef<Scope>(null);
+  const containerRef = useRef(null);
+  const scopeRef = useRef<Scope>(null);
   const menuActivateButtonContainerRef = useRef(null);
   const [headerMounted, setHeaderMounted] = useState(false);
   const headerActivated = useAppSelector(selectIsMenuOpened);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    scope.current = createScope({ root: container });
-    scope.current.add((self) => {
+    scopeRef.current = createScope({ root: containerRef });
+    scopeRef.current.add((self) => {
       if(!self) throw new Error(`Scope is not available yet.`);
       self.add('activateMenu', () => {
         if(!menuActivateButtonContainerRef.current) throw new Error(`Menu button reference is not available yet.`);
@@ -43,7 +43,7 @@ export const Header = (props: Props) => {
           height: '2rem',
           ease: 'out(1)',
           duration: 1000,
-          delay: 1000,
+          delay: 500,
           onComplete: () => {
             setHeaderMounted(false)
           }
@@ -54,11 +54,11 @@ export const Header = (props: Props) => {
   }, []);
 
   useEffect(() => {
-    if(!scope.current) throw new Error(`Scope is not available yet.`);
+    if(!scopeRef.current) throw new Error(`Scope is not available yet.`);
     if(headerActivated) {
-      scope.current.methods.activateMenu()
+      scopeRef.current.methods.activateMenu()
     } else {
-      scope.current.methods.deactivateMenu()
+      scopeRef.current.methods.deactivateMenu()
     }
   }, [headerActivated]);
 
@@ -72,7 +72,7 @@ export const Header = (props: Props) => {
 
   return (
     <header
-      ref={container}
+      ref={containerRef}
       className={`${headerMounted? styles.header: styles.headerUnmounted } ${props.className || ''}`}
 
     >

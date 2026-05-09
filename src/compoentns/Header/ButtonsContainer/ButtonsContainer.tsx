@@ -11,31 +11,33 @@ export interface ButtonsContainerProps {
 }
 
 function ButtonsContainer({className, isExpanded, onMenuItemClick}: ButtonsContainerProps) {
-  const rootRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const scopeRef = useRef<Scope | null>(null);
 
   useEffect(() => {
-      if(!rootRef.current) {
+      if(!containerRef.current) {
         throw new Error(`Root reference is not available yet.`);
       }
-      scopeRef.current = createScope({ root: rootRef.current });
+      scopeRef.current = createScope({ root: containerRef.current });
       scopeRef.current.add(self => {
         if(self === undefined) throw new Error(`Scope is not available yet.`);
         self.add('appear', () => {
-          if(!rootRef.current) throw new Error(`Root reference is not available yet.`);
+          if(!containerRef.current) throw new Error(`Root reference is not available yet.`);
+
+          // Setting initial state
+          containerRef.current.style.opacity = '0';
+
           const tm = createTimeline()
-          tm.add(rootRef.current, {
-            // opacity: 1,
-            minHeight: '50vh',
+          tm.add(containerRef.current, {
+            opacity: 1,
             duration: 1000,
             ease: 'inQuad',
           })
         })
         self.add('disappear', () => {
-          if(!rootRef.current) throw new Error(`Root reference is not available yet.`);
-          animate(rootRef.current, {
-            // opacity: 0,
-            minHeight: '0vh',
+          if(!containerRef.current) throw new Error(`Root reference is not available yet.`);
+          animate(containerRef.current, {
+            opacity: 0,
             duration: 1000,
             ease: 'inQuad',
           })
@@ -52,7 +54,7 @@ function ButtonsContainer({className, isExpanded, onMenuItemClick}: ButtonsConta
   }, [isExpanded]);
 
   return (
-    <div ref={rootRef} className={`${styles.buttonsContainer} ${className || ''}`}>
+    <div ref={containerRef} className={`${styles.buttonsContainer} ${className || ''}`}>
       {
         mainMenuItems.map(item => {
           return (

@@ -38,13 +38,19 @@ function ButtonsBlock({className, items, onButtonClick, blockVisible}: ButtonsBl
 
         const tm = createTimeline();
 
+        tm.add(containerRef.current, {
+          opacity: 1,
+          duration: 100,
+          ease: 'linear',
+        });
+
         tm.add(buttons, {
           translateY: ['-60px', '0px'],
           opacity: [0, 1],
           duration: 600,
           delay: (_: any, index: number) => index * 120,
           ease: 'outQuad',
-        }, 0);
+        });
       });
 
       self.add('disappear', () => {
@@ -57,7 +63,7 @@ function ButtonsBlock({className, items, onButtonClick, blockVisible}: ButtonsBl
         tm.add(buttons, {
           translateY: ['0px', '-60px'],
           opacity: [1, 0],
-          duration: 300,
+          duration: 500,
           delay: (_: any, index: number) => index * 60,
           ease: 'inQuad',
         });
@@ -66,7 +72,13 @@ function ButtonsBlock({className, items, onButtonClick, blockVisible}: ButtonsBl
           height: '0',
           duration: 500,
           ease: 'inQuad',
-        }, 0);
+        });
+
+        tm.add(containerRef.current, {
+          opacity: 0,
+          duration: 100,
+          ease: 'linear',
+        });
       });
     });
   }, []);
