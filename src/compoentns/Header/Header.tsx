@@ -4,17 +4,20 @@ import ButtonsContainer from "./ButtonsContainer/ButtonsContainer.tsx";
 import {animate, createScope, Scope} from 'animejs'
 import {useEffect, useRef, useState} from "react";
 import RemainingSpaceContainer from "./RemainingSpaceContainer/RemainingSpaceContainer.tsx";
+import {useAppDispatch, useAppSelector} from "../../reduxStore/hooks.ts";
+import {closeMenuAction, openMenuAction, selectIsMenuOpened} from "./headerSlice.ts";
 
 type Props = {
   className?: string
 };
 
 export const Header = (props: Props) => {
-  const [headerActivated, setHeaderActivated] = useState<boolean>(false);
   const container = useRef(null);
   const scope = useRef<Scope>(null);
   const menuActivateButtonContainerRef = useRef(null);
   const [headerMounted, setHeaderMounted] = useState(false);
+  const headerActivated = useAppSelector(selectIsMenuOpened);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     scope.current = createScope({ root: container });
@@ -60,11 +63,11 @@ export const Header = (props: Props) => {
   }, [headerActivated]);
 
   const activateMenuClicked = () => {
-    setHeaderActivated(true);
+    dispatch(openMenuAction());
   }
 
   const deactivateMenuClicked = () => {
-    setHeaderActivated(false);
+    dispatch(closeMenuAction());
   }
 
   return (
