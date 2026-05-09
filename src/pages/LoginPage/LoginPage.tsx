@@ -10,7 +10,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: any) => {
     e.preventDefault();
     navigate(routes.home)
   }
