@@ -33,7 +33,7 @@ function ModelViewer({ gltfFile, autoRotateEnabled }: ModelViewerPropsI) {
       0.1,
       1000
     );
-    camera.position.set(0, 1.5, 3);
+    camera.position.set(0, 1, 2);
 
     const renderer = new WebGLRenderer({ canvas, antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
