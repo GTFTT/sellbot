@@ -10,7 +10,11 @@ function ProcessorPart() {
     <div ref={rootRef} className={styles.container}>
       <ModelViewer gltfFile={PROCESSOR_GLTF_URL} autoRotateEnabled={true}/>
       <span className={styles.text}>
-        We run on the most <b>powerful</b> processors out there.
+        <span>We run on the most</span>
+        <br />
+        <span><b>powerful</b></span>
+        <br />
+        <span>processors out there.</span>
       </span>
     </div>
   );

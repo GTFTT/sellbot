@@ -11,4 +11,9 @@
   text-align: center;
   font-size: 2rem;
   color: #8c0000;
+  line-height: 90%;
+}
+
+.text b {
+  color: #ff0000;
 }
