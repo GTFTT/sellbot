@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 4rem 10rem;
+  align-items: flex-start;
+  padding: 4rem 15rem;
 }
 
 .container p {
@@ -12,14 +12,15 @@
 
 .container a {
   padding: 0 0.5rem;
+  color: white;
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 2rem 1.25rem;
+    padding: 4rem 4rem;
   }
 
   .container p {
-    text-indent: 0.5rem;
+    text-indent: 1rem;
   }
 }
