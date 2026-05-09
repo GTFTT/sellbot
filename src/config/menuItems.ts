@@ -15,53 +15,14 @@ export interface MainMenuItemBlock {
 export const mainMenuItems: MainMenuItemBlock[] = [
   {
     id: v4(),
-    blockName: 'Buy',
-    items: [
-      {
-        id: v4(),
-        label: 'Buy for home',
-        route: routes.inProgress,
-      },
-      {
-        id: v4(),
-        label: 'Buy for factory',
-        route: routes.inProgress,
-      },
-      {
-        id: v4(),
-        label: 'Buy for store',
-        route: routes.inProgress,
-      },
-      {
-        id: v4(),
-        label: 'Buy for security',
-        route: routes.inProgress,
-      },
-      {
-        id: v4(),
-        label: 'Buy for healthcare',
-        route: routes.inProgress,
-      },
-    ]
-  },
-  {
-    id: v4(),
     blockName: 'Other options',
     items: [
       {
         id: v4(),
         label: 'Home screen',
         route: routes.home,
-      },
-      {
-        id: v4(),
-        label: 'Constructor',
-      },
-      {
-        id: v4(),
-        label: 'Special options',
       }
-    ]
+    ],
   },
   {
     id: v4(),
@@ -76,7 +37,7 @@ export const mainMenuItems: MainMenuItemBlock[] = [
         id: v4(),
         label: 'Register',
         route: routes.register,
-      }
+      },
     ]
   },
   {
@@ -88,10 +49,6 @@ export const mainMenuItems: MainMenuItemBlock[] = [
         label: 'About',
         route: routes.about,
       },
-      {
-        id: v4(),
-        label: 'Contacts',
-      }
     ]
   }
 ]
